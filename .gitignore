@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+
+# CLI output (generated when running the manager, e.g. `--output rico-bookmarks`)
+rico-bookmarks/
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

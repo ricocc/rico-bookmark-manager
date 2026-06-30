@@ -1,0 +1,28 @@
+:root {
+  color-scheme: light;
+  --bg: #f5f4ed;
+  --panel: #faf9f5;
+  --panel-raised: #E8E6DC;
+  --sidebar: #f5f4ed;
+  --overlay: rgba(31, 41, 51, 0.35);
+  --text: #2b2a26;
+  --muted: #6b6a64;
+  --faint: #9b978b;
+  --inverse: #FAF9F5;
+  --accent: #1B365D;
+  --accent-strong: #10253f;
+  --accent-soft: #E6ECF3;
+  --danger: #a6422b;
+  --warning: #9a6b19;
+  --success: #2f6d4f;
+  --border: #D8D3C6;
+  --shadow: 0 1px 2px rgba(27, 54, 93, 0.04);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-pill: 999px;
+  --font-ui: "IBM Plex Sans", "Microsoft YaHei", sans-serif;
+  --font-display: Charter, Georgia, "Songti SC", "Source Han Serif SC", serif;
+  --font-mono: "JetBrains Mono", "SF Mono", monospace;
+}
+html { background: var(--bg); }
+body { background: var(--bg); }

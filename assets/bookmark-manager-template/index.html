@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>书签</title>
+  <link rel="icon" type="image/jpeg" href="logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Charter:ital,wght@0,400;0,500&family=Fraunces:opsz,wght@9..144,400;9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="site-sidebar" aria-label="书签导航">
+      <div class="sidebar-head">
+        <a class="brand" href="#" id="homeLink" aria-label="返回全部书签">
+          <img class="brand-mark" src="logo.jpg" alt="Rico 书签管理器 logo">
+          <span>
+            <span class="brand-title">Rico</span>
+            <span class="brand-subtitle">Bookmarks</span>
+          </span>
+        </a>
+        <div class="sidebar-controls">
+          <button class="sidebar-icon-btn guide-btn" type="button" id="guideBtn" aria-label="打开指南" title="打开指南">
+            <i data-lucide="circle-help" class="icon"></i>
+          </button>
+          <button class="sidebar-icon-btn sidebar-toggle" type="button" id="sidebarToggle" aria-label="收起侧边栏" title="收起侧边栏" aria-expanded="true">
+            <span class="toggle-icon-wrap" aria-hidden="true">
+              <i data-lucide="chevron-left" class="icon toggle-icon toggle-icon-collapse"></i>
+              <i data-lucide="chevron-right" class="icon toggle-icon toggle-icon-expand"></i>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <section class="side-block">
+        <div class="side-label"><i data-lucide="folder" class="icon"></i>分类</div>
+        <nav class="category-nav" id="categoryNav"></nav>
+      </section>
+
+      <section class="side-block">
+        <div class="side-label"><i data-lucide="hash" class="icon"></i>常用标签</div>
+        <div class="tag-cloud" id="tagCloud"></div>
+      </section>
+
+      <section class="side-block compact-controls">
+        <label>
+          <span class="side-label"><i data-lucide="globe" class="icon"></i>域名</span>
+          <select id="domainFilter"></select>
+        </label>
+        <label>
+          <span class="side-label"><i data-lucide="activity" class="icon"></i>链接状态</span>
+          <select id="statusFilter"></select>
+        </label>
+      </section>
+
+      <div class="side-actions">
+        <button class="quiet-btn" type="button" id="insightsBtn"><i data-lucide="bar-chart-3" class="icon"></i>报告</button>
+        <button class="quiet-btn" type="button" id="exportMenuBtn" aria-expanded="false"><i data-lucide="download" class="icon"></i>导出</button>
+        <div class="export-menu" id="exportMenu" hidden>
+          <button type="button" id="exportJsonBtn">调整后的 JSON</button>
+          <button type="button" id="exportMdBtn">Markdown 总览</button>
+          <button type="button" id="exportHtmlBtn">浏览器导入 HTML</button>
+        </div>
+      </div>
+    </aside>
+
+    <main class="site-main">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow" id="themeEyebrow">目录</p>
+          <h1>书签</h1>
+          <p class="hero-text">搜索、筛选并整理你常用的网站。</p>
+          <div class="atlas-stats" id="atlasStats"></div>
+        </div>
+        <div class="hero-search">
+          <div class="search-toolbar" aria-label="书签搜索与视图控制">
+            <div class="view-toggle" aria-label="视图切换">
+              <button class="view-btn active" type="button" data-view="grid" title="网格视图" aria-label="网格视图"><i data-lucide="layout-grid" class="icon"></i></button>
+              <button class="view-btn" type="button" data-view="list" title="列表视图" aria-label="列表视图"><i data-lucide="list" class="icon"></i></button>
+            </div>
+            <label class="search-box">
+              <span class="search-icon" aria-hidden="true"><i data-lucide="search" class="icon"></i></span>
+              <input id="searchInput" type="search" placeholder="搜索标题、网址、域名、标签或分类">
+            </label>
+          </div>
+          <div class="active-filters" id="activeFilters"></div>
+        </div>
+      </header>
+
+      <section class="mobile-tools" id="mobileTools" aria-label="移动端工具">
+        <button type="button" id="mobileFilterBtn"><i data-lucide="sliders-horizontal" class="icon"></i>筛选</button>
+        <button type="button" id="mobileInsightsBtn"><i data-lucide="bar-chart-3" class="icon"></i>报告</button>
+        <button type="button" id="mobileExportBtn"><i data-lucide="download" class="icon"></i>导出</button>
+        <button type="button" id="mobileGuideBtn"><i data-lucide="circle-help" class="icon"></i>指南</button>
+      </section>
+
+      <section class="mobile-categories" id="mobileCategories" aria-label="移动端分类"></section>
+
+      <section class="featured-section" id="featuredSection">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">开始</p>
+            <h2>快速访问</h2>
+          </div>
+          <button class="quiet-btn" type="button" id="shuffleFeaturedBtn"><i data-lucide="shuffle" class="icon"></i>随机</button>
+        </div>
+        <div class="featured-grid" id="featuredGrid"></div>
+      </section>
+
+      <section class="library-section">
+        <div class="section-head library-head">
+          <div>
+            <p class="eyebrow" id="scopeEyebrow">浏览</p>
+            <h2 id="scopeTitle">全部书签</h2>
+          </div>
+          <div class="toolbar">
+            <span class="result-count" id="resultCount"></span>
+            <button class="clear-all-btn" type="button" id="clearAllBtn" hidden>清除筛选</button>
+          </div>
+        </div>
+        <div class="bookmark-grid" id="bookmarkGrid"></div>
+        <div class="bookmark-list" id="bookmarkList" hidden></div>
+        <div class="empty-state" id="emptyState" hidden>
+          <strong>没有匹配的书签</strong>
+          <span>换个关键词，或清除当前的筛选条件。</span>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="detailDialog" class="modal-dialog">
+    <form method="dialog" class="modal-card detail-card">
+      <button class="modal-close" value="cancel" aria-label="关闭"><i data-lucide="x" class="icon"></i></button>
+      <div id="detailContent"></div>
+    </form>
+  </dialog>
+
+  <dialog id="insightDialog" class="modal-dialog">
+    <form method="dialog" class="modal-card insight-card">
+      <button class="modal-close" value="cancel" aria-label="关闭"><i data-lucide="x" class="icon"></i></button>
+      <div class="modal-title-row">
+        <p class="eyebrow">报告</p>
+        <h2>整理报告</h2>
+      </div>
+      <div class="insight-tabs" id="insightTabs">
+        <button type="button" class="active" data-panel="summary"><i data-lucide="bar-chart-3" class="icon"></i>统计</button>
+        <button type="button" data-panel="duplicates"><i data-lucide="copy" class="icon"></i>重复</button>
+        <button type="button" data-panel="deadlinks"><i data-lucide="link-2" class="icon"></i>死链</button>
+        <button type="button" data-panel="suggestions"><i data-lucide="lightbulb" class="icon"></i>建议</button>
+      </div>
+      <div class="insight-panels" id="insightPanels"></div>
+    </form>
+  </dialog>
+
+  <dialog id="guideDialog" class="modal-dialog guide-dialog">
+    <form method="dialog" class="modal-card guide-card">
+      <button class="modal-close" value="cancel" aria-label="关闭"><i data-lucide="x" class="icon"></i></button>
+      <div class="modal-title-row">
+        <p class="eyebrow">指南</p>
+        <h2>如何使用这个书签管理器</h2>
+      </div>
+      <div class="guide-content" id="guideContent">
+        <article>
+          <h3>快速开始</h3>
+          <ul>
+            <li>用搜索查找标题、网址、域名、标签或分类。</li>
+            <li>在侧边栏按分类、标签、域名和链接状态筛选。</li>
+            <li>列表区会显示当前结果数量，并支持一键清除筛选。</li>
+          </ul>
+        </article>
+        <article>
+          <h3>书签操作</h3>
+          <ul>
+            <li>点击卡片或“访问”即可打开原始网站。</li>
+            <li>打开“详情”查看网址、来源文件夹、分类、标签和描述。</li>
+            <li>在网格与列表视图之间切换，调整浏览密度。</li>
+          </ul>
+        </article>
+        <article>
+          <h3>整理与导出</h3>
+          <ul>
+            <li>报告汇总统计、重复、死链和建议。</li>
+            <li>可导出调整后的 JSON、Markdown 总览，或浏览器可导入的 HTML。</li>
+            <li>JSON 导出会包含保存在当前浏览器中的暂存调整。</li>
+          </ul>
+        </article>
+        <article>
+          <h3>本地暂存</h3>
+          <ul>
+            <li>“详情”里的高级编辑只保存在当前浏览器中。</li>
+            <li>它们不会直接修改源 <code>bookmarks.json</code> 或浏览器书签。</li>
+            <li>要保留编辑，请导出 JSON 并主动替换源数据。</li>
+          </ul>
+        </article>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="mobileFilterDialog" class="modal-dialog mobile-filter-dialog">
+    <form method="dialog" class="modal-card mobile-tool-card">
+      <button class="modal-close" value="cancel" aria-label="关闭"><i data-lucide="x" class="icon"></i></button>
+      <div class="modal-title-row">
+        <p class="eyebrow">筛选</p>
+        <h2>筛选书签</h2>
+      </div>
+      <div id="mobileFilterContent"></div>
+    </form>
+  </dialog>
+
+  <dialog id="mobileExportDialog" class="modal-dialog mobile-export-dialog">
+    <form method="dialog" class="modal-card mobile-tool-card">
+      <button class="modal-close" value="cancel" aria-label="关闭"><i data-lucide="x" class="icon"></i></button>
+      <div class="modal-title-row">
+        <p class="eyebrow">导出</p>
+        <h2>导出书签</h2>
+      </div>
+      <div class="mobile-export-actions">
+        <button type="button" id="mobileExportJsonBtn">调整后的 JSON</button>
+        <button type="button" id="mobileExportMdBtn">Markdown 总览</button>
+        <button type="button" id="mobileExportHtmlBtn">浏览器导入 HTML</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="data.js"></script>
+  <!-- lucide icons (pinned for reproducible generated sites; see references/manager-spec.md to bump) -->
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

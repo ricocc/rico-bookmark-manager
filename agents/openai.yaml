@@ -1,0 +1,5 @@
+interface:
+  display_name: "Rico Bookmarks Manager"
+  short_description: "Rico browser bookmark analysis and export"
+  brand_color: "#0f3e17"
+  default_prompt: "Use $rico-bookmark-manager to analyze, organize, and export my browser bookmarks."

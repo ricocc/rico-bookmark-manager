@@ -1,0 +1,29 @@
+:root {
+  color-scheme: light;
+  --bg: #fdfaf5;
+  --panel: #ffffff;
+  --panel-raised: #f2f7ff;
+  --sidebar: #f7f1e8;
+  --overlay: rgba(18, 35, 58, 0.38);
+  --text: #243042;
+  --muted: #3f4a5a;
+  --faint: #7a6550;
+  --inverse: #ffffff;
+  --accent: #2d6dc3;
+  --accent-strong: #0066ff;
+  --accent-soft: #e7f0ff;
+  --danger: #b64242;
+  --warning: #a77b00;
+  --success: #287a5a;
+  --border: #d8e1ee;
+  --shadow: 0 16px 42px rgba(45, 109, 195, 0.10);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-pill: 999px;
+  --font-ui: "IBM Plex Sans", "Microsoft YaHei", system-ui, sans-serif;
+  --font-display: "Fraunces", Georgia, "Songti SC", serif;
+  --font-mono: "JetBrains Mono", "SF Mono", monospace;
+  --gold: #fad13b;
+}
+html { background: var(--bg); }
+body { background: var(--bg); }

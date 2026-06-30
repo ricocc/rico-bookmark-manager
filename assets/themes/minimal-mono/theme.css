@@ -1,0 +1,28 @@
+:root {
+  color-scheme: dark;
+  --bg: #11110f;
+  --panel: #1a1917;
+  --panel-raised: #2a2927;
+  --sidebar: #151412;
+  --overlay: rgba(0, 0, 0, 0.74);
+  --text: #f4f4f2;
+  --muted: #d8d5cf;
+  --faint: #aaa49b;
+  --inverse: #11110f;
+  --accent: #f4f4f2;
+  --accent-strong: #ffffff;
+  --accent-soft: #2a2927;
+  --danger: #d8a39a;
+  --warning: #d8c26d;
+  --success: #bccbb3;
+  --border: #34312d;
+  --shadow: 0 18px 54px rgba(0, 0, 0, 0.34);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-pill: 999px;
+  --font-ui: Inter, "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  --font-display: Inter, "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", monospace;
+}
+html { background: var(--bg); }
+body { background: var(--bg); }

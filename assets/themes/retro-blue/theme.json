@@ -1,0 +1,39 @@
+{
+  "id": "retro-blue",
+  "name": "Retro Blue",
+  "mode": "light",
+  "description": "Warm paper bookmark navigation with editorial blue headings, soft blue accents, and restrained gold highlights.",
+  "density": "comfortable",
+  "fonts": {
+    "ui": "\"IBM Plex Sans\", \"Microsoft YaHei\", system-ui, sans-serif",
+    "display": "\"Fraunces\", Georgia, \"Songti SC\", serif",
+    "mono": "\"JetBrains Mono\", \"SF Mono\", monospace"
+  },
+  "radii": {
+    "sm": "8px",
+    "md": "14px",
+    "pill": "999px"
+  },
+  "colors": {
+    "bg": "#fdfaf5",
+    "panel": "#ffffff",
+    "panelRaised": "#f2f7ff",
+    "sidebar": "#f7f1e8",
+    "overlay": "rgba(18, 35, 58, 0.38)",
+    "text": "#243042",
+    "muted": "#3f4a5a",
+    "faint": "#7a6550",
+    "inverse": "#ffffff",
+    "accent": "#2d6dc3",
+    "accentStrong": "#0066ff",
+    "accentSoft": "#e7f0ff",
+    "border": "#d8e1ee",
+    "shadow": "0 16px 42px rgba(45, 109, 195, 0.10)",
+    "danger": "#b64242",
+    "warning": "#a77b00",
+    "success": "#287a5a"
+  },
+  "cssVars": {
+    "--gold": "#fad13b"
+  }
+}

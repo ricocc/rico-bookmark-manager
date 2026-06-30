@@ -1,0 +1,36 @@
+{
+  "id": "ui",
+  "name": "UI Swiss Grid",
+  "mode": "light",
+  "description": "Monochrome shadcn-inspired bookmark navigation with Swiss grid rhythm and border-first components.",
+  "density": "compact",
+  "fonts": {
+    "ui": "Geist, Inter, system-ui, -apple-system, sans-serif",
+    "display": "Geist, Inter, system-ui, -apple-system, sans-serif",
+    "mono": "\"Geist Mono\", \"SF Mono\", monospace"
+  },
+  "radii": {
+    "sm": "8px",
+    "md": "10px",
+    "pill": "999px"
+  },
+  "colors": {
+    "bg": "#ffffff",
+    "panel": "#ffffff",
+    "panelRaised": "#f7f7f7",
+    "sidebar": "#ffffff",
+    "overlay": "rgba(0, 0, 0, 0.48)",
+    "text": "#0a0a0a",
+    "muted": "#737373",
+    "faint": "#a1a1a1",
+    "inverse": "#ffffff",
+    "accent": "#000000",
+    "accentStrong": "#171717",
+    "accentSoft": "#f2f2f2",
+    "border": "#e5e5e5",
+    "shadow": "none",
+    "danger": "#b91c1c",
+    "warning": "#854d0e",
+    "success": "#166534"
+  }
+}

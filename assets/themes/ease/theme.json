@@ -1,0 +1,36 @@
+{
+  "id": "ease",
+  "name": "Ease Atlas",
+  "mode": "light",
+  "description": "Paper-toned bookmark directory with ink text, mineral blue accents, and quiet index-like surfaces.",
+  "density": "comfortable",
+  "fonts": {
+    "ui": "\"IBM Plex Sans\", \"Microsoft YaHei\", sans-serif",
+    "display": "\"Fraunces\", \"Songti SC\", serif",
+    "mono": "\"JetBrains Mono\", \"SF Mono\", monospace"
+  },
+  "radii": {
+    "sm": "7px",
+    "md": "14px",
+    "pill": "999px"
+  },
+  "colors": {
+    "bg": "#f7f7f3",
+    "panel": "#fffefa",
+    "panelRaised": "#eff3f1",
+    "sidebar": "#f0f2ec",
+    "overlay": "rgba(27, 43, 49, 0.34)",
+    "text": "#20231f",
+    "muted": "#656e6a",
+    "faint": "#9aa29d",
+    "inverse": "#fffefa",
+    "accent": "#25566a",
+    "accentStrong": "#173847",
+    "accentSoft": "#dce9ee",
+    "border": "#dce2dc",
+    "shadow": "0 18px 50px rgba(31, 54, 62, 0.08)",
+    "danger": "#b34747",
+    "warning": "#9a6818",
+    "success": "#2b7563"
+  }
+}
