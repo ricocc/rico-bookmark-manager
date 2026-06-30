@@ -2,7 +2,7 @@
 
 Turn a messy browser bookmark export into a clean, searchable, local navigation site — plus structured data, Markdown overviews, and review reports. Works as a skill and as a standalone, dependency-free Python CLI.
 
-Chinese documentation: [README.zh.md](README.zh.md)
+中文文档: [中文说明](README.zh.md)
 
 ![ease 主题](screenshot/ease.jpeg)
 
