@@ -4,7 +4,7 @@ Turn a messy browser bookmark export into a clean, searchable, local navigation 
 
 中文文档: [中文说明](README.zh.md)
 
-![ease 主题](screenshot/ease.jpeg)
+![ease 主题](screenshot/ui.jpeg)
 
 ## Preview
 
