@@ -363,10 +363,19 @@ def parse_bookmark_html(path):
 
 
 def match_domain(domain):
+    if not domain:
+        return None
+    best = None
+    best_len = -1
     for key, value in DOMAIN_RULES.items():
-        if domain == key or domain.endswith("." + key) or key in domain:
-            return value
-    return None
+        # Exact and subdomain matches only; a plain substring test would
+        # misclassify unrelated hosts ("myfigma.com") and let a generic
+        # parent rule shadow a more specific subdomain rule below it.
+        if domain == key or domain.endswith("." + key):
+            if len(key) > best_len:
+                best = value
+                best_len = len(key)
+    return best
 
 
 TECHNIQUE_KEYWORDS = {
